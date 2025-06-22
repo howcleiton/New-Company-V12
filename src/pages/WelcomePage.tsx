@@ -10,7 +10,7 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] h-full w-full relative">
+            <div className="flex flex-col items-center px-4 pt-[140px] h-full">
                 {/* Animação */}
                 <Lottie
                     animationData={animationData}
@@ -28,26 +28,25 @@ export default function WelcomePage() {
                 </p>
 
                 {/* Checkbox */}
-                <div className="mt-[82px] z-10">
-                    <label className="flex items-center text-white text-[16px] font-medium">
-                        <input
-                            type="checkbox"
-                            className="mr-2 w-4 h-4 accent-[#D47EAE]"
-                            checked={accepted}
-                            onChange={(e) => setAccepted(e.target.checked)}
-                        />
-                        Aceito os{' '}
-                        <button
-                            className="text-[#D47EAE] underline ml-1"
-                            onClick={() => navigate('/terms')}
-                        >
-                            termos de serviço
-                        </button>
-                    </label>
-                </div>
+                <label className="flex items-center mt-[56px] text-white text-[16px] font-medium">
+                    <input
+                        type="checkbox"
+                        className="mr-2 w-4 h-4 accent-[#D47EAE]"
+                        checked={accepted}
+                        onChange={(e) => setAccepted(e.target.checked)}
+                    />
+                    Aceito os{' '}
+                    <button
+                        className="text-[#D47EAE] underline ml-1"
+                        onClick={() => navigate('/terms')}
+                    >
+                        termos de serviço
+                    </button>
+                </label>
 
-                {/* Botões fixos */}
-                <div className="absolute bottom-[env(safe-area-inset-bottom,24px)] left-0 right-0 flex flex-col items-center gap-[13px] px-4">
+                {/* Botões */}
+                <div className="mt-auto flex flex-col items-center gap-[13px] pb-[env(safe-area-inset-bottom,20px)]">
+                    {/* Botão degradê */}
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
@@ -62,6 +61,7 @@ export default function WelcomePage() {
                         Começar
                     </button>
 
+                    {/* Botão com borda branca */}
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/import-wallet')}
