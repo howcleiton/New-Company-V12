@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reset e ajustes para parecer um app mobile */
+html,
+body,
+#root {
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    background-color: #1F1F1F;
+    /* Cor de fundo padrão */
+}
+
+/* Garante que tudo fique dentro dos limites da tela */
+* {
+    box-sizing: border-box;
+}
+
+/* Evita zoom e seleção indesejada em mobile */
+body {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
