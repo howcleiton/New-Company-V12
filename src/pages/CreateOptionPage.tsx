@@ -6,15 +6,13 @@ import {
     LockKeyhole,
     Fingerprint,
 } from 'lucide-react';
+import MobileLayout from "@/components/layout/MobileLayout"; // 👈 importado aqui
 
 export default function CreateOptionSelect() {
     const navigate = useNavigate();
 
     return (
-        <div
-            className="relative w-[393px] h-[852px] bg-[#1F1F1F] rounded-[24px] text-white overflow-hidden mx-auto"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-        >
+        <MobileLayout>
             {/* Botão de voltar */}
             <button
                 className="absolute top-[68px] left-[16px] z-10"
@@ -73,6 +71,6 @@ export default function CreateOptionSelect() {
             >
                 Crie uma carteira
             </button>
-        </div>
+        </MobileLayout>
     );
 }

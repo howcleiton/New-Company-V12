@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CircleArrowLeft, LockOpen } from 'lucide-react';
-import { usePinStore } from '../store/pinStore'; // 👈 import
+import { usePinStore } from '../store/pinStore';
+import MobileLayout from "@/components/layout/MobileLayout"; // 👈 importado aqui
 
 export default function CreatePinPage() {
-    // dentro do componente:
     const setPinGlobal = usePinStore((state) => state.setPin);
-
     const navigate = useNavigate();
     const [pin, setPin] = useState('');
 
@@ -16,10 +15,7 @@ export default function CreatePinPage() {
     };
 
     return (
-        <div
-            className="relative w-[393px] h-[852px] mx-auto bg-[#1F1F1F] rounded-[24px] text-white overflow-hidden"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-        >
+        <MobileLayout>
             {/* Botão de voltar */}
             <button
                 className="absolute top-[68px] left-[16px]"
@@ -40,7 +36,7 @@ export default function CreatePinPage() {
                 </p>
             </div>
 
-            {/* PIN container com 4 bolinhas */}
+            {/* PIN container */}
             <div className="absolute top-[402px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] border border-white/60 rounded-full flex items-center justify-center gap-[20px]">
                 {[0, 1, 2, 3].map((index) => (
                     <div
@@ -49,7 +45,7 @@ export default function CreatePinPage() {
                             }`}
                     />
                 ))}
-                {/* input invisível para capturar o PIN */}
+                {/* Input invisível */}
                 <input
                     type="tel"
                     maxLength={4}
@@ -77,6 +73,6 @@ export default function CreatePinPage() {
             >
                 Continuar
             </button>
-        </div>
+        </MobileLayout>
     );
 }

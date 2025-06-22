@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CircleArrowLeft, MailQuestion } from 'lucide-react';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/celular load.json';
+import MobileLayout from "@/components/layout/MobileLayout"; // 👈 importado aqui
 
 export default function CreateEmailPage() {
     const navigate = useNavigate();
@@ -20,8 +21,7 @@ export default function CreateEmailPage() {
     };
 
     return (
-        <div className="relative w-[393px] h-[852px] mx-auto bg-[#1F1F1F] text-white rounded-[24px] overflow-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
-
+        <MobileLayout>
             {/* Botão de voltar */}
             <button className="absolute top-[68px] left-[16px]" onClick={() => navigate('/create-option')}>
                 <CircleArrowLeft className="w-[24px] h-[24px] text-[#D47EAE]" />
@@ -29,7 +29,7 @@ export default function CreateEmailPage() {
 
             {/* Conteúdo principal */}
             <div className="flex flex-col items-center px-4 pt-[140px]">
-                {/* Ícone ou animação */}
+                {/* Animação */}
                 <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
                 {/* Título */}
@@ -55,7 +55,6 @@ export default function CreateEmailPage() {
                     className="mt-[32px] w-[299px] h-[48px] rounded-full px-4 text-white text-center text-[16px] font-medium bg-transparent border border-white placeholder:text-white/60 outline-none"
                 />
 
-
                 {/* Mensagem de erro */}
                 {isTouched && !isValidEmail(email) && email.length > 0 && (
                     <p className="text-red-500 text-sm mt-2">E-mail inválido</p>
@@ -78,6 +77,6 @@ export default function CreateEmailPage() {
             >
                 Continuar
             </button>
-        </div>
+        </MobileLayout>
     );
 }
