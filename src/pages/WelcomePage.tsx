@@ -10,38 +10,39 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col justify-between items-center px-4 pt-[140px] h-full">
-                {/* Topo */}
-                <div className="flex flex-col items-center">
-                    <Lottie
-                        animationData={animationData}
-                        className="w-[250px] h-[250px]"
-                    />
-                    <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
-                        Bem-vindo à How
-                    </h1>
-                    <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
-                        Sua carteira de criptomoedas segura<br />e fácil de usar
-                    </p>
-                    <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
-                        <input
-                            type="checkbox"
-                            className="mr-2 w-4 h-4 accent-[#D47EAE]"
-                            checked={accepted}
-                            onChange={(e) => setAccepted(e.target.checked)}
-                        />
-                        Aceito os{' '}
-                        <button
-                            className="text-[#D47EAE] underline ml-1"
-                            onClick={() => navigate('/terms')}
-                        >
-                            termos de serviço
-                        </button>
-                    </label>
-                </div>
+            <div className="flex flex-col items-center px-4 pt-[140px] pb-[160px] h-full relative">
+                {/* Animação */}
+                <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
-                {/* Botões - SEM rolagem */}
-                <div className="flex flex-col items-center gap-[13px] w-full pb-[calc(env(safe-area-inset-bottom)+24px)]">
+                {/* Título */}
+                <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
+                    Bem-vindo à How
+                </h1>
+
+                {/* Subtítulo */}
+                <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
+                    Sua carteira de criptomoedas segura<br />e fácil de usar
+                </p>
+
+                {/* Checkbox */}
+                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
+                    <input
+                        type="checkbox"
+                        className="mr-2 w-4 h-4 accent-[#D47EAE]"
+                        checked={accepted}
+                        onChange={(e) => setAccepted(e.target.checked)}
+                    />
+                    Aceito os{' '}
+                    <button
+                        className="text-[#D47EAE] underline ml-1"
+                        onClick={() => navigate('/terms')}
+                    >
+                        termos de serviço
+                    </button>
+                </label>
+
+                {/* Botões fixos no fundo */}
+                <div className="fixed bottom-0 left-0 w-full px-4 pb-[max(24px,env(safe-area-inset-bottom))] bg-[#1F1F1F] flex flex-col items-center gap-[13px] z-50">
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
