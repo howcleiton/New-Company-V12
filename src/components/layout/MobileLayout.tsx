@@ -17,7 +17,7 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
             }}
         >
             <div
-                className="w-[393px] h-[852px] rounded-none overflow-hidden relative"
+                className="w-[393px] min-h-[100dvh] flex flex-col overflow-hidden relative"
             >
                 {children}
             </div>
