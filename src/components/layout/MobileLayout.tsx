@@ -17,7 +17,7 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
                 WebkitOverflowScrolling: 'touch',
             }}
         >
-            <div className="w-full max-w-[393px] h-full flex flex-col overflow-hidden">
+            <div className="w-full max-w-[393px] min-h-[100dvh] flex flex-col overflow-hidden">
                 {children}
             </div>
         </div>
