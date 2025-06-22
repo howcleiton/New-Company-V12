@@ -10,27 +10,22 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col h-full w-full px-4 pt-[140px] font-inter">
-                {/* Animação */}
-                <div className="flex justify-center">
-                    <Lottie
-                        animationData={animationData}
-                        className="w-[250px] h-[250px]"
-                    />
-                </div>
+            {/* Conteúdo principal com rolagem livre se necessário */}
+            <div className="flex flex-col items-center px-4 pt-[140px] pb-[200px] h-full">
+                <Lottie
+                    animationData={animationData}
+                    className="w-[250px] h-[250px]"
+                />
 
-                {/* Título */}
                 <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
                     Bem-vindo à How
                 </h1>
 
-                {/* Subtítulo */}
                 <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
                     Sua carteira de criptomoedas segura<br />e fácil de usar
                 </p>
 
-                {/* Checkbox */}
-                <label className="flex items-center justify-center mt-[82px] text-white text-[16px] font-medium">
+                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
                     <input
                         type="checkbox"
                         className="mr-2 w-4 h-4 accent-[#D47EAE]"
@@ -45,34 +40,36 @@ export default function WelcomePage() {
                         termos de serviço
                     </button>
                 </label>
+            </div>
 
-                {/* Botões */}
-                <div className="mt-auto flex flex-col items-center gap-[13px]">
-                    <button
-                        disabled={!accepted}
-                        onClick={() => navigate('/create-option')}
-                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] ${accepted
-                            ? 'bg-gradient-to-r from-[#D47EAE] to-[#168BC2] text-white'
-                            : 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                            }`}
-                        style={{
-                            boxShadow: accepted ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
-                        }}
-                    >
-                        Começar
-                    </button>
+            {/* Botões fixos manualmente */}
+            <div
+                className="absolute bottom-[calc(env(safe-area-inset-bottom)+30px)] left-0 w-full flex flex-col items-center gap-[13px]"
+            >
+                <button
+                    disabled={!accepted}
+                    onClick={() => navigate('/create-option')}
+                    className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] ${accepted
+                        ? 'bg-gradient-to-r from-[#D47EAE] to-[#168BC2] text-white'
+                        : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                        }`}
+                    style={{
+                        boxShadow: accepted ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
+                    }}
+                >
+                    Começar
+                </button>
 
-                    <button
-                        disabled={!accepted}
-                        onClick={() => navigate('/import-wallet')}
-                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] border ${accepted
-                            ? 'border-white text-white'
-                            : 'border-white/60 text-white/60 cursor-not-allowed'
-                            }`}
-                    >
-                        Importar Carteira Existente
-                    </button>
-                </div>
+                <button
+                    disabled={!accepted}
+                    onClick={() => navigate('/import-wallet')}
+                    className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] border ${accepted
+                        ? 'border-white text-white'
+                        : 'border-white/60 text-white/60 cursor-not-allowed'
+                        }`}
+                >
+                    Importar Carteira Existente
+                </button>
             </div>
         </MobileLayout>
     );
