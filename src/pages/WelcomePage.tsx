@@ -10,7 +10,7 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] pb-[160px] h-full relative">
+            <div className="flex flex-col items-center px-4 pt-[140px] pb-[230px] h-full relative">
                 {/* Animação */}
                 <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
