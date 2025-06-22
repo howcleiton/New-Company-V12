@@ -10,23 +10,19 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center justify-between h-full w-full px-4 py-4">
-                {/* Topo: Animação + textos */}
-                <div className="flex flex-col items-center mt-[68px]">
+            <div className="flex flex-col justify-between items-center px-4 pt-[140px] h-full">
+                {/* Topo */}
+                <div className="flex flex-col items-center">
                     <Lottie
                         animationData={animationData}
                         className="w-[250px] h-[250px]"
                     />
-
                     <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
                         Bem-vindo à How
                     </h1>
-
                     <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
                         Sua carteira de criptomoedas segura<br />e fácil de usar
                     </p>
-
-                    {/* Checkbox */}
                     <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
                         <input
                             type="checkbox"
@@ -44,8 +40,8 @@ export default function WelcomePage() {
                     </label>
                 </div>
 
-                {/* Rodapé: Botões fixos */}
-                <div className="w-full flex flex-col items-center gap-[13px] pb-[env(safe-area-inset-bottom)]">
+                {/* Botões - SEM rolagem */}
+                <div className="flex flex-col items-center gap-[13px] w-full pb-[calc(env(safe-area-inset-bottom)+24px)]">
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
