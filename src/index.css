@@ -2,29 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset e ajustes para parecer um app mobile */
+/* Reset completo para fullscreen app mobile */
 html,
 body,
 #root {
     height: 100dvh;
+    /* Altura dinâmica da tela sem cortar conteúdo */
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #1F1F1F;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: none;
-    background-color: #1F1F1F;
-    /* Cor de fundo padrão */
 }
 
-/* Garante que tudo fique dentro dos limites da tela */
-* {
-    box-sizing: border-box;
-}
-
-/* Evita zoom e seleção indesejada em mobile */
+/* Evita que elementos fiquem fora da safe area do iOS */
 body {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     touch-action: manipulation;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
+}
+
+/* Box sizing global */
+* {
+    box-sizing: border-box;
 }
