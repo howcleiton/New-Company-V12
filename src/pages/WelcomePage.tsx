@@ -10,42 +10,43 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center justify-between h-full w-full px-4 pt-[140px] pb-[env(safe-area-inset-bottom)]">
+            <div className="flex flex-col items-center px-4 pt-[140px] h-full">
                 {/* Animação */}
                 <Lottie
                     animationData={animationData}
                     className="w-[250px] h-[250px]"
                 />
 
-                {/* Texto */}
-                <div className="text-center mt-8">
-                    <h1 className="text-[30px] font-bold text-[#D47EAE]">Bem-vindo à How</h1>
-                    <p className="text-[18px] font-medium text-white leading-[24px] mt-2">
-                        Sua carteira de criptomoedas segura<br />
-                        e fácil de usar
-                    </p>
-                </div>
+                {/* Título */}
+                <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
+                    Bem-vindo à How
+                </h1>
 
-                {/* Termos + Botões */}
-                <div className="w-full flex flex-col items-center gap-[13px] mt-auto mb-[32px]">
-                    {/* Checkbox */}
-                    <label className="flex items-center text-white text-[16px] font-medium mb-4">
-                        <input
-                            type="checkbox"
-                            className="mr-2 w-4 h-4 accent-[#D47EAE]"
-                            checked={accepted}
-                            onChange={(e) => setAccepted(e.target.checked)}
-                        />
-                        Aceito os{' '}
-                        <button
-                            className="text-[#D47EAE] underline ml-1"
-                            onClick={() => navigate('/terms')}
-                        >
-                            termos de serviço
-                        </button>
-                    </label>
+                {/* Subtítulo */}
+                <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
+                    Sua carteira de criptomoedas segura<br />e fácil de usar
+                </p>
 
-                    {/* Botão Começar */}
+                {/* Checkbox */}
+                <label className="flex items-center mt-[56px] text-white text-[16px] font-medium">
+                    <input
+                        type="checkbox"
+                        className="mr-2 w-4 h-4 accent-[#D47EAE]"
+                        checked={accepted}
+                        onChange={(e) => setAccepted(e.target.checked)}
+                    />
+                    Aceito os{' '}
+                    <button
+                        className="text-[#D47EAE] underline ml-1"
+                        onClick={() => navigate('/terms')}
+                    >
+                        termos de serviço
+                    </button>
+                </label>
+
+                {/* Botões */}
+                <div className="mt-auto flex flex-col items-center gap-[13px] mb-[104px]">
+                    {/* Botão degradê */}
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
@@ -60,7 +61,7 @@ export default function WelcomePage() {
                         Começar
                     </button>
 
-                    {/* Botão Importar */}
+                    {/* Botão com borda branca */}
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/import-wallet')}
