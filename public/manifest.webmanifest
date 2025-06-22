@@ -1,6 +1,6 @@
 {
     "name": "How Wallet",
-    "short_name": "HowWallet",
+    "short_name": "How Wallet",
     "description": "Sua carteira de criptomoedas segura e rápida",
     "start_url": "/",
     "display": "standalone",
