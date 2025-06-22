@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import MobileLayout from "@/components/layout/MobileLayout";
+
 
 export default function CreateWalletNamePage() {
     const navigate = useNavigate();
