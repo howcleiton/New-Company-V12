@@ -8,11 +8,12 @@ body,
 #root {
     height: 100%;
     min-height: 100dvh;
-    /* altura dinâmica real */
     background-color: #1F1F1F;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
+    /* ⛔ TRAVA a rolagem vertical */
     -webkit-overflow-scrolling: touch;
 }
 
