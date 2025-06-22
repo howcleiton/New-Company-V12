@@ -10,14 +10,14 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
             className="w-full min-h-[100dvh] bg-[#1F1F1F] text-white flex justify-center"
             style={{
                 fontFamily: 'Inter, sans-serif',
-                paddingTop: 'env(safe-area-inset-top)',
+                // ❌ REMOVEMOS o paddingTop
                 paddingBottom: 'env(safe-area-inset-bottom)',
                 paddingLeft: 'env(safe-area-inset-left)',
                 paddingRight: 'env(safe-area-inset-right)',
                 WebkitOverflowScrolling: 'touch',
             }}
         >
-            <div className="w-full max-w-[393px] min-h-[100dvh] flex flex-col overflow-hidden">
+            <div className="w-full max-w-[393px] h-full flex flex-col overflow-hidden">
                 {children}
             </div>
         </div>
