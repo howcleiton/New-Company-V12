@@ -21,11 +21,13 @@ export default function WelcomePage() {
 
                 {/* Subtítulo */}
                 <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
-                    Sua carteira de criptomoedas segura<br />e fácil de usar
+                    Sua carteira de criptomoedas segura
+                    <br />
+                    e fácil de usar
                 </p>
 
                 {/* Checkbox */}
-                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
+                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium z-10">
                     <input
                         type="checkbox"
                         className="mr-2 w-4 h-4 accent-[#D47EAE]"
@@ -41,8 +43,8 @@ export default function WelcomePage() {
                     </button>
                 </label>
 
-                {/* Botões fixos no fundo */}
-                <div className="fixed bottom-0 left-0 w-full px-4 pb-[max(24px,env(safe-area-inset-bottom))] bg-[#1F1F1F] flex flex-col items-center gap-[13px] z-50">
+                {/* Botões fixos */}
+                <div className="fixed bottom-0 left-0 w-full flex flex-col items-center gap-[13px] pb-[env(safe-area-inset-bottom)] pt-4 bg-[#1F1F1F] z-50">
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
