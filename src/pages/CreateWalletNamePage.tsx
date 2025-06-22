@@ -13,7 +13,7 @@ export default function CreateWalletNamePage() {
 
     return (
         <MobileLayout>
-            <div className="relative h-full w-full px-6">
+            <div className="flex flex-col h-full w-full px-6 font-inter pb-[165px]">
                 {/* Título + Subtítulo - 140px do topo */}
                 <div className="pt-[140px] text-center">
                     <h1 className="text-[24px] font-bold text-[#D47EAE] mb-2">
@@ -24,8 +24,8 @@ export default function CreateWalletNamePage() {
                     </p>
                 </div>
 
-                {/* Input centralizado verticalmente no frame com 402px acima e abaixo */}
-                <div className="absolute top-[402px] left-1/2 -translate-x-1/2">
+                {/* Espaço fixo até 402px */}
+                <div className="mt-[94px] flex justify-center">
                     <input
                         type="text"
                         placeholder="Ex: How Wallet"
@@ -35,8 +35,8 @@ export default function CreateWalletNamePage() {
                     />
                 </div>
 
-                {/* Botão posicionado 165px acima da borda inferior */}
-                <div className="absolute bottom-[165px] left-1/2 -translate-x-1/2">
+                {/* Botão fixado na parte inferior com 165px */}
+                <div className="mt-auto flex justify-center">
                     <button
                         onClick={handleContinue}
                         disabled={walletName.trim() === ""}

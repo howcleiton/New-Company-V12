@@ -10,7 +10,7 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] relative h-full">
+            <div className="flex flex-col items-center px-4 pt-[140px] h-full">
                 {/* Animação */}
                 <Lottie
                     animationData={animationData}
@@ -44,32 +44,35 @@ export default function WelcomePage() {
                     </button>
                 </label>
 
-                {/* Botão degradê fixo a 165px */}
-                <button
-                    disabled={!accepted}
-                    onClick={() => navigate('/create-option')}
-                    className={`absolute bottom-[165px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] rounded-full font-bold text-[18px] ${accepted
-                        ? 'bg-gradient-to-r from-[#D47EAE] to-[#168BC2] text-white'
-                        : 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                        }`}
-                    style={{
-                        boxShadow: accepted ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
-                    }}
-                >
-                    Começar
-                </button>
+                {/* Spacer para empurrar os botões */}
+                <div className="mt-auto flex flex-col items-center gap-[13px] pb-[104px]">
+                    {/* Botão degradê */}
+                    <button
+                        disabled={!accepted}
+                        onClick={() => navigate('/create-option')}
+                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] ${accepted
+                            ? 'bg-gradient-to-r from-[#D47EAE] to-[#168BC2] text-white'
+                            : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                            }`}
+                        style={{
+                            boxShadow: accepted ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
+                        }}
+                    >
+                        Começar
+                    </button>
 
-                {/* Botão com borda branca fixo a 104px */}
-                <button
-                    disabled={!accepted}
-                    onClick={() => navigate('/import-wallet')}
-                    className={`absolute bottom-[104px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] rounded-full font-bold text-[18px] border ${accepted
-                        ? 'border-white text-white'
-                        : 'border-white/60 text-white/60 cursor-not-allowed'
-                        }`}
-                >
-                    Importar Carteira Existente
-                </button>
+                    {/* Botão com borda branca */}
+                    <button
+                        disabled={!accepted}
+                        onClick={() => navigate('/import-wallet')}
+                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] border ${accepted
+                            ? 'border-white text-white'
+                            : 'border-white/60 text-white/60 cursor-not-allowed'
+                            }`}
+                    >
+                        Importar Carteira Existente
+                    </button>
+                </div>
             </div>
         </MobileLayout>
     );

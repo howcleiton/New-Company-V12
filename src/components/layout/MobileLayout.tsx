@@ -7,7 +7,7 @@ interface MobileLayoutProps {
 const MobileLayout = ({ children }: MobileLayoutProps) => {
     return (
         <div
-            className="fixed inset-0 flex justify-center items-center bg-[#1F1F1F] text-white overflow-hidden"
+            className="w-full min-h-[100dvh] bg-[#1F1F1F] text-white flex justify-center overflow-hidden"
             style={{
                 fontFamily: 'Inter, sans-serif',
                 paddingBottom: 'env(safe-area-inset-bottom)',
@@ -16,7 +16,9 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
                 paddingRight: 'env(safe-area-inset-right)',
             }}
         >
-            <div className="w-[393px] h-[852px] overflow-hidden md:rounded-[24px]">
+            <div
+                className="w-[393px] h-[852px] rounded-none overflow-hidden relative"
+            >
                 {children}
             </div>
         </div>
