@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CircleArrowLeft, Copy, KeyRound, CheckCircle } from "lucide-react";
+import { CircleArrowLeft, Copy, KeyRound, CheckCircle, TriangleAlert } from "lucide-react";
 import MobileLayout from "../components/layout/MobileLayout";
 import { useState } from "react";
 
@@ -42,10 +42,36 @@ export default function CreateWalletPage() {
                         Escreva essas palavras e mantenha-as em um lugar seguro
                     </p>
 
-                    {/* Grid com overlay */}
-                    <div className="relative mt-6 mx-auto w-[306px] h-[257px] rounded-[24px] overflow-hidden border border-white">
+                    {/* Grid da seed com overlay */}
+                    <div
+                        className="relative mt-6 mx-auto w-[306px] h-[257px] rounded-[24px]"
+                    >
+
+                        {/* Overlay - cobre tudo */}
+                        {!revealed && (
+                            <div
+                                className="absolute inset-[-16px] z-30 flex flex-col items-center justify-center px-4 text-center cursor-pointer rounded-[24px] backdrop-blur-sm bg-white/10 border border-white"
+                                onClick={() => setRevealed(true)}
+                            >
+
+                                <div className="flex items-start gap-2 text-white text-[16px] font-medium leading-tight">
+                                    <TriangleAlert className="w-8 h-8 text-[#D47EAE] mt-[2px]" />
+                                    <span className="text-left">
+                                        Nunca compartilhe sua frase de<br />
+                                        recuperação
+                                    </span>
+                                </div>
+
+
+                                <button className="mt-3 text-[#D47EAE] underline font-bold">
+                                    Toque para revelar
+                                </button>
+                            </div>
+                        )}
+
+
                         {/* Grade da seed */}
-                        <div className="w-full h-full grid grid-cols-2 gap-x-[13px] gap-y-[13px] p-[0.5px]">
+                        <div className="absolute inset-0 z-10 grid grid-cols-2 gap-x-[13px] gap-y-[13px] p-[0.5px]">
                             {seedWords.map((word, index) => (
                                 <div
                                     key={index}
@@ -60,21 +86,6 @@ export default function CreateWalletPage() {
                                 </div>
                             ))}
                         </div>
-
-                        {/* Overlay */}
-                        {!revealed && (
-                            <div
-                                className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center backdrop-blur-2xl z-20 bg-black/80 border border-white rounded-[24px] px-4 text-center cursor-pointer"
-                                onClick={() => setRevealed(true)}
-                            >
-                                <p className="text-[16px] font-medium leading-tight text-white">
-                                    ⚠️ Nunca compartilhe sua frase de recuperação
-                                </p>
-                                <button className="mt-3 text-[#D47EAE] underline font-bold">
-                                    Toque para revelar
-                                </button>
-                            </div>
-                        )}
                     </div>
 
                     {/* Copiar */}
