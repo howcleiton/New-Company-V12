@@ -10,12 +10,14 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] h-full">
+            <div className="flex flex-col h-full w-full px-4 pt-[140px] font-inter">
                 {/* Animação */}
-                <Lottie
-                    animationData={animationData}
-                    className="w-[250px] h-[250px]"
-                />
+                <div className="flex justify-center">
+                    <Lottie
+                        animationData={animationData}
+                        className="w-[250px] h-[250px]"
+                    />
+                </div>
 
                 {/* Título */}
                 <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
@@ -28,7 +30,7 @@ export default function WelcomePage() {
                 </p>
 
                 {/* Checkbox */}
-                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium">
+                <label className="flex items-center justify-center mt-[82px] text-white text-[16px] font-medium">
                     <input
                         type="checkbox"
                         className="mr-2 w-4 h-4 accent-[#D47EAE]"
@@ -44,9 +46,8 @@ export default function WelcomePage() {
                     </button>
                 </label>
 
-                {/* Spacer para empurrar os botões */}
-                <div className="mt-auto flex flex-col items-center gap-[13px] pb-[104px]">
-                    {/* Botão degradê */}
+                {/* Botões */}
+                <div className="mt-auto flex flex-col items-center gap-[13px]">
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
@@ -61,7 +62,6 @@ export default function WelcomePage() {
                         Começar
                     </button>
 
-                    {/* Botão com borda branca */}
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/import-wallet')}
