@@ -10,9 +10,12 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] pb-[230px] h-full relative">
+            <div className="flex flex-col items-center px-4 pt-[140px] h-full w-full relative">
                 {/* Animação */}
-                <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
+                <Lottie
+                    animationData={animationData}
+                    className="w-[250px] h-[250px]"
+                />
 
                 {/* Título */}
                 <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
@@ -21,30 +24,30 @@ export default function WelcomePage() {
 
                 {/* Subtítulo */}
                 <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
-                    Sua carteira de criptomoedas segura
-                    <br />
-                    e fácil de usar
+                    Sua carteira de criptomoedas segura<br />e fácil de usar
                 </p>
 
                 {/* Checkbox */}
-                <label className="flex items-center mt-[82px] text-white text-[16px] font-medium z-10">
-                    <input
-                        type="checkbox"
-                        className="mr-2 w-4 h-4 accent-[#D47EAE]"
-                        checked={accepted}
-                        onChange={(e) => setAccepted(e.target.checked)}
-                    />
-                    Aceito os{' '}
-                    <button
-                        className="text-[#D47EAE] underline ml-1"
-                        onClick={() => navigate('/terms')}
-                    >
-                        termos de serviço
-                    </button>
-                </label>
+                <div className="mt-[82px] z-10">
+                    <label className="flex items-center text-white text-[16px] font-medium">
+                        <input
+                            type="checkbox"
+                            className="mr-2 w-4 h-4 accent-[#D47EAE]"
+                            checked={accepted}
+                            onChange={(e) => setAccepted(e.target.checked)}
+                        />
+                        Aceito os{' '}
+                        <button
+                            className="text-[#D47EAE] underline ml-1"
+                            onClick={() => navigate('/terms')}
+                        >
+                            termos de serviço
+                        </button>
+                    </label>
+                </div>
 
                 {/* Botões fixos */}
-                <div className="fixed bottom-0 left-0 w-full flex flex-col items-center gap-[13px] pb-[env(safe-area-inset-bottom)] pt-4 bg-[#1F1F1F] z-50">
+                <div className="absolute bottom-[env(safe-area-inset-bottom,24px)] left-0 right-0 flex flex-col items-center gap-[13px] px-4">
                     <button
                         disabled={!accepted}
                         onClick={() => navigate('/create-option')}
