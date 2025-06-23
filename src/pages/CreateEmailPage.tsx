@@ -22,7 +22,7 @@ export default function CreateEmailPage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col h-full w-full px-4 pt-[68px] pb-[165px] relative">
+            <div className="flex flex-col h-full w-full px-4 pt-[68px] relative">
                 {/* Botão de voltar */}
                 <button
                     className="absolute top-[68px] left-[16px] z-10"
@@ -65,8 +65,8 @@ export default function CreateEmailPage() {
                     )}
                 </div>
 
-                {/* Botão Continuar - Fixa sem sobrepor */}
-                <div className="mt-auto flex justify-center">
+                {/* Botão Continuar - agora com margem inferior */}
+                <div className="mt-auto flex justify-center mb-[104px]">
                     <button
                         disabled={!isValidEmail(email)}
                         onClick={handleContinue}

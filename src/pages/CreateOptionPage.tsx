@@ -13,7 +13,7 @@ export default function CreateOptionSelect() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col h-full w-full px-6 pt-[68px] pb-[165px] relative">
+            <div className="flex flex-col h-full w-full px-6 pt-[68px] relative">
                 {/* Botão de voltar */}
                 <button
                     className="absolute top-[68px] left-[16px] z-10"
@@ -50,8 +50,8 @@ export default function CreateOptionSelect() {
                     </div>
                 </div>
 
-                {/* Botões - no final da tela */}
-                <div className="mt-auto flex flex-col items-center gap-[13px]">
+                {/* Botões */}
+                <div className="mt-auto flex flex-col items-center gap-[13px] mb-[104px]">
                     <button
                         onClick={() => navigate("/create-email")}
                         className="w-[299px] h-[48px] rounded-full font-bold text-[18px] text-white"

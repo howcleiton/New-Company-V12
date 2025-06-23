@@ -38,7 +38,7 @@ export default function CreatePinPage() {
                 </p>
             </div>
 
-            {/* Container de PIN posicionado exatamente a 402px do topo */}
+            {/* Container de PIN */}
             <div className="absolute top-[402px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] border border-white/60 rounded-full flex items-center justify-center gap-[20px]">
                 {[0, 1, 2, 3].map((index) => (
                     <div
@@ -57,7 +57,7 @@ export default function CreatePinPage() {
             </div>
 
             {/* Botão continuar */}
-            <div className="absolute bottom-[165px] w-full flex justify-center px-6">
+            <div className="absolute bottom-[104px] w-full flex justify-center px-6">
                 <button
                     disabled={pin.length < 4}
                     onClick={() => {
