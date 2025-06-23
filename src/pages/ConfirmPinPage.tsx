@@ -20,7 +20,6 @@ export default function ConfirmPinPage() {
 
     const handleConfirm = () => {
         if (confirmPin === originalPin) {
-            console.log('✅ PIN confirmado!');
             navigate('/create-wallet-name');
         } else {
             setError(true);
@@ -48,7 +47,7 @@ export default function ConfirmPinPage() {
                 </p>
             </div>
 
-            {/* Campo de PIN exatamente a 402px */}
+            {/* Campo de PIN */}
             <div className="absolute top-[402px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] border border-white/60 rounded-full flex items-center justify-center gap-[20px]">
                 {[0, 1, 2, 3].map((index) => (
                     <div
@@ -66,7 +65,7 @@ export default function ConfirmPinPage() {
                 />
             </div>
 
-            {/* Erro de confirmação */}
+            {/* Mensagem de erro */}
             {error && (
                 <p className="text-red-500 text-sm text-center absolute top-[460px] left-1/2 -translate-x-1/2">
                     Os PINs não coincidem.
@@ -74,7 +73,7 @@ export default function ConfirmPinPage() {
             )}
 
             {/* Botão continuar */}
-            <div className="absolute bottom-[165px] w-full flex justify-center px-6">
+            <div className="absolute bottom-[104px] w-full flex justify-center px-6">
                 <button
                     disabled={confirmPin.length < 4}
                     onClick={handleConfirm}

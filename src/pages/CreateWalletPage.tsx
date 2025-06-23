@@ -29,7 +29,7 @@ export default function CreateWalletPage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col h-full w-full font-inter px-6 pt-[68px] pb-[165px]">
+            <div className="flex flex-col h-full w-full font-inter px-6 pt-[68px] pb-[165px] relative">
                 {/* Botão de voltar */}
                 <button
                     className="absolute top-[68px] left-[16px]"
@@ -39,7 +39,7 @@ export default function CreateWalletPage() {
                 </button>
 
                 {/* Conteúdo principal */}
-                <div className="flex flex-col items-center mt-[72px]">
+                <div className="mt-[72px] flex flex-col items-center">
                     {/* Título */}
                     <div className="flex justify-center items-center gap-2 mb-2">
                         <KeyRound className="w-[24px] h-[24px] text-[#D47EAE]" />
@@ -56,7 +56,7 @@ export default function CreateWalletPage() {
                         {/* Overlay - cobre tudo */}
                         {!revealed && (
                             <div
-                                className="absolute inset-[-16px] z-30 flex flex-col items-center justify-center px-4 text-center cursor-pointer rounded-[24px] backdrop-blur-sm bg-white/10 border border-white"
+                                className="absolute inset-0 z-30 flex flex-col items-center justify-center px-4 text-center cursor-pointer rounded-[24px] backdrop-blur-sm bg-white/10 border border-white"
                                 onClick={() => setRevealed(true)}
                             >
                                 <div className="flex items-start gap-2 text-white text-[16px] font-medium leading-tight">
@@ -105,12 +105,13 @@ export default function CreateWalletPage() {
                 </div>
 
                 {/* Botão final fixado com margem inferior */}
-                <div className="mt-auto flex justify-center">
+                <div className="absolute bottom-[104px] left-0 right-0 flex justify-center px-6">
                     <button
                         onClick={() => navigate("/wallet")}
                         className="w-[299px] h-[48px] rounded-full font-bold text-[18px] text-white"
                         style={{
                             background: "linear-gradient(90deg, #D47EAE 0%, #168BC2 100%)",
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
                         }}
                     >
                         Frase salva

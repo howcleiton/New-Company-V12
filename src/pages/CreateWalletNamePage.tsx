@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 
-
 export default function CreateWalletNamePage() {
     const navigate = useNavigate();
     const [walletName, setWalletName] = useState("");
@@ -20,7 +19,7 @@ export default function CreateWalletNamePage() {
                     Nome da carteira
                 </h1>
                 <p className="text-[18px] font-medium text-white leading-[24px] max-w-[320px] mx-auto">
-                    Dê um nome a sua carteira. Esse nome poderá ser trocado posteriormente
+                    Dê um nome à sua carteira. Esse nome poderá ser trocado posteriormente.
                 </p>
             </div>
 
@@ -31,12 +30,12 @@ export default function CreateWalletNamePage() {
                     placeholder="Ex: How Wallet"
                     value={walletName}
                     onChange={(e) => setWalletName(e.target.value)}
-                    className="w-full bg-transparent text-white placeholder:text-white/60 outline-none"
+                    className="w-full text-center text-white text-[16px] font-medium placeholder:text-white/60 bg-transparent outline-none"
                 />
             </div>
 
-            {/* Botão fixado a 165px do final */}
-            <div className="absolute bottom-[165px] w-full flex justify-center px-6">
+            {/* Botão fixado a 104px do final */}
+            <div className="absolute bottom-[104px] w-full flex justify-center px-6 font-inter">
                 <button
                     onClick={handleContinue}
                     disabled={walletName.trim() === ""}
@@ -46,6 +45,10 @@ export default function CreateWalletNamePage() {
                             walletName.trim() !== ""
                                 ? "linear-gradient(90deg, #D47EAE 0%, #168BC2 100%)"
                                 : "linear-gradient(90deg, #444 0%, #444 100%)",
+                        boxShadow:
+                            walletName.trim() !== ""
+                                ? "0 4px 12px rgba(0,0,0,0.3)"
+                                : "none",
                     }}
                 >
                     Continuar
