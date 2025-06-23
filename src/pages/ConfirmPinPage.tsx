@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CircleArrowLeft, Lock } from 'lucide-react';
 import { usePinStore } from '../store/pinStore';
 import MobileLayout from "@/components/layout/MobileLayout";
+import PrimaryBottomButton from "@/components/ui/PrimaryBottomButton";
 
 export default function ConfirmPinPage() {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function ConfirmPinPage() {
 
     return (
         <MobileLayout>
-            {/* Botão de voltar fixo */}
+            {/* Botão de voltar */}
             <button
                 className="absolute top-[68px] left-[16px] z-10"
                 onClick={() => navigate('/create-pin')}
@@ -37,7 +38,7 @@ export default function ConfirmPinPage() {
             </button>
 
             {/* Título e subtítulo */}
-            <div className="pt-[140px] px-4 text-center font-inter">
+            <div className="pt-[140px] px-6 text-center font-inter">
                 <div className="flex justify-center items-center gap-2 text-[#D47EAE]">
                     <Lock className="w-[24px] h-[24px]" />
                     <h1 className="text-[24px] font-bold">Confirme seu PIN</h1>
@@ -47,7 +48,7 @@ export default function ConfirmPinPage() {
                 </p>
             </div>
 
-            {/* Campo de PIN */}
+            {/* Campo de PIN fixo a 402px do topo */}
             <div className="absolute top-[402px] left-1/2 -translate-x-1/2 w-[299px] h-[48px] border border-white/60 rounded-full flex items-center justify-center gap-[20px]">
                 {[0, 1, 2, 3].map((index) => (
                     <div
@@ -65,7 +66,7 @@ export default function ConfirmPinPage() {
                 />
             </div>
 
-            {/* Mensagem de erro */}
+            {/* Mensagem de erro abaixo do PIN */}
             {error && (
                 <p className="text-red-500 text-sm text-center absolute top-[460px] left-1/2 -translate-x-1/2">
                     Os PINs não coincidem.
@@ -73,23 +74,11 @@ export default function ConfirmPinPage() {
             )}
 
             {/* Botão continuar */}
-            <div className="absolute bottom-[104px] w-full flex justify-center px-6">
-                <button
-                    disabled={confirmPin.length < 4}
-                    onClick={handleConfirm}
-                    className="w-[299px] h-[48px] rounded-full font-bold text-[18px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
-                    style={{
-                        background:
-                            confirmPin.length === 4
-                                ? 'linear-gradient(90deg, #D47EAE 0%, #168BC2 100%)'
-                                : 'linear-gradient(90deg, #444 0%, #444 100%)',
-                        boxShadow:
-                            confirmPin.length === 4 ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
-                    }}
-                >
-                    Criar PIN
-                </button>
-            </div>
+            <PrimaryBottomButton
+                label="Criar PIN"
+                onClick={handleConfirm}
+                disabled={confirmPin.length < 4}
+            />
         </MobileLayout>
     );
 }

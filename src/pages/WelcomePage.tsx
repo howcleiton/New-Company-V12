@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/welcome-page.json';
 import MobileLayout from '../components/layout/MobileLayout';
+import { SPACING } from '@/constants/layout';
+import PrimaryBottomButton from '@/components/ui/PrimaryBottomButton';
+import SecondaryBottomButton from '@/components/ui/SecondaryBottomButton';
 
 export default function WelcomePage() {
     const navigate = useNavigate();
@@ -10,25 +13,36 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center px-4 pt-[140px] h-full">
+            {/* Container principal com altura e posicionamento fixos */}
+            <div
+                className="relative w-full h-[852px] px-6"
+                style={{ paddingTop: SPACING.animationTop }}
+            >
                 {/* Animação */}
-                <Lottie
-                    animationData={animationData}
-                    className="w-[250px] h-[250px]"
-                />
+                <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
                 {/* Título */}
-                <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
+                <h1
+                    className="text-[30px] font-bold text-[#D47EAE] text-center"
+                    style={{ marginTop: SPACING.animationToTitle }}
+                >
                     Bem-vindo à How
                 </h1>
 
                 {/* Subtítulo */}
-                <p className="text-[18px] font-medium text-white text-center mt-[8px] leading-[24px]">
-                    Sua carteira de criptomoedas segura<br />e fácil de usar
+                <p
+                    className="text-[18px] font-medium text-white text-center leading-[24px]"
+                    style={{ marginTop: SPACING.titleToSubtitle }}
+                >
+                    Sua carteira de criptomoedas segura<br />
+                    e fácil de usar
                 </p>
 
                 {/* Checkbox */}
-                <label className="flex items-center mt-[56px] text-white text-[16px] font-medium">
+                <label
+                    className="flex items-center text-white text-[16px] font-medium"
+                    style={{ marginTop: 82 }}
+                >
                     <input
                         type="checkbox"
                         className="mr-2 w-4 h-4 accent-[#D47EAE]"
@@ -44,35 +58,18 @@ export default function WelcomePage() {
                     </button>
                 </label>
 
-                {/* Botões */}
-                <div className="mt-auto flex flex-col items-center gap-[13px] pb-[calc(env(safe-area-inset-bottom)+104px)]">
-                    {/* Botão degradê */}
-                    <button
-                        disabled={!accepted}
-                        onClick={() => navigate('/create-option')}
-                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] ${accepted
-                            ? 'bg-gradient-to-r from-[#D47EAE] to-[#168BC2] text-white'
-                            : 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                            }`}
-                        style={{
-                            boxShadow: accepted ? '0 4px 12px rgba(0,0,0,0.3)' : 'none',
-                        }}
-                    >
-                        Começar
-                    </button>
+                {/* Botões fixos na parte inferior */}
+                <PrimaryBottomButton
+                    label="Começar"
+                    onClick={() => navigate("/create-option")}
+                    disabled={!accepted}
+                />
 
-                    {/* Botão com borda branca */}
-                    <button
-                        disabled={!accepted}
-                        onClick={() => navigate('/import-wallet')}
-                        className={`w-[299px] h-[48px] rounded-full font-bold text-[18px] border ${accepted
-                            ? 'border-white text-white'
-                            : 'border-white/60 text-white/60 cursor-not-allowed'
-                            }`}
-                    >
-                        Importar Carteira Existente
-                    </button>
-                </div>
+                <SecondaryBottomButton
+                    label="Importar Carteira Existente"
+                    onClick={() => navigate("/import-wallet")}
+                    disabled={!accepted}
+                />
             </div>
         </MobileLayout>
     );
