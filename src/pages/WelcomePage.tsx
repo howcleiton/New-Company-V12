@@ -45,7 +45,7 @@ export default function WelcomePage() {
                 </label>
 
                 {/* Botões */}
-                <div className="mt-auto flex flex-col items-center gap-[13px] mb-[104px]">
+                <div className="mt-auto flex flex-col items-center gap-[13px] pb-[calc(env(safe-area-inset-bottom)+104px)]">
                     {/* Botão degradê */}
                     <button
                         disabled={!accepted}
