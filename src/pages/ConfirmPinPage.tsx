@@ -28,7 +28,15 @@ export default function ConfirmPinPage() {
     };
 
     return (
-        <MobileLayout>
+        <MobileLayout
+            footer={
+                <PrimaryBottomButton
+                    label="Criar PIN"
+                    onClick={handleConfirm}
+                    disabled={confirmPin.length < 4}
+                />
+            }
+        >
             {/* Botão de voltar */}
             <button
                 className="absolute top-[68px] left-[16px] z-10"
@@ -72,13 +80,6 @@ export default function ConfirmPinPage() {
                     Os PINs não coincidem.
                 </p>
             )}
-
-            {/* Botão continuar */}
-            <PrimaryBottomButton
-                label="Criar PIN"
-                onClick={handleConfirm}
-                disabled={confirmPin.length < 4}
-            />
         </MobileLayout>
     );
 }

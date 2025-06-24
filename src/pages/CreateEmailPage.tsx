@@ -23,7 +23,15 @@ export default function CreateEmailPage() {
     };
 
     return (
-        <MobileLayout>
+        <MobileLayout
+            footer={
+                <PrimaryBottomButton
+                    label="Continuar"
+                    onClick={handleContinue}
+                    disabled={!isValidEmail(email)}
+                />
+            }
+        >
             <div
                 className="relative w-full h-[852px] px-6 text-white"
                 style={{ paddingTop: SPACING.animationTop }}
@@ -83,13 +91,6 @@ export default function CreateEmailPage() {
                 {isTouched && !isValidEmail(email) && email.length > 0 && (
                     <p className="text-red-500 text-sm text-center mt-2">E-mail inválido</p>
                 )}
-
-                {/* Botão */}
-                <PrimaryBottomButton
-                    label="Continuar"
-                    onClick={handleContinue}
-                    disabled={!isValidEmail(email)}
-                />
             </div>
         </MobileLayout>
     );

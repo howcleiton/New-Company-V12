@@ -7,9 +7,13 @@ interface MobileLayoutProps {
      * Se não informado, assume 1 botão.
      */
     bottomButtonsCount?: 1 | 2;
+    /**
+     * Footer fixo na base do layout (botões de ação).
+     */
+    footer?: React.ReactNode;
 }
 
-const MobileLayout = ({ children, bottomButtonsCount = 1 }: MobileLayoutProps) => {
+const MobileLayout = ({ children, bottomButtonsCount = 1, footer }: MobileLayoutProps) => {
     // Padding inferior conforme o Figma
     const bottomPadding = bottomButtonsCount === 2 ? 104 : 165;
     return (
@@ -21,15 +25,32 @@ const MobileLayout = ({ children, bottomButtonsCount = 1 }: MobileLayoutProps) =
             }}
         >
             <div
-                className="w-full max-w-[393px] h-full flex flex-col overflow-y-auto"
-                style={{
-                    paddingTop: '140px', // padding superior do Figma
-                    paddingBottom: `calc(${bottomPadding}px + var(--safe-bottom))`,
-                    paddingLeft: 'var(--safe-left)',
-                    paddingRight: 'var(--safe-right)',
-                }}
+                className="w-full max-w-[393px] h-full flex flex-col relative"
             >
-                {children}
+                {/* Conteúdo rolável */}
+                <div
+                    className="flex-1 overflow-y-auto"
+                    style={{
+                        paddingTop: '140px', // padding superior do Figma
+                        paddingBottom: `calc(${bottomPadding}px + var(--safe-bottom))`,
+                        paddingLeft: 'var(--safe-left)',
+                        paddingRight: 'var(--safe-right)',
+                    }}
+                >
+                    {children}
+                </div>
+                {/* Footer fixo */}
+                {footer && (
+                    <footer
+                        className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] px-4 z-50"
+                        style={{
+                            paddingBottom: 'calc(24px + var(--safe-bottom))',
+                            background: 'rgba(24,24,27,0.95)',
+                        }}
+                    >
+                        {footer}
+                    </footer>
+                )}
             </div>
         </div>
     );

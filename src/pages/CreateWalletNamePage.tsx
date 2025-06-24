@@ -13,7 +13,15 @@ export default function CreateWalletNamePage() {
     };
 
     return (
-        <MobileLayout>
+        <MobileLayout
+            footer={
+                <PrimaryBottomButton
+                    label="Continuar"
+                    onClick={handleContinue}
+                    disabled={walletName.trim() === ""}
+                />
+            }
+        >
             {/* Título + Subtítulo */}
             <div className="pt-[140px] px-6 text-center font-inter">
                 <h1 className="text-[24px] font-bold text-[#D47EAE] mb-[8px]">
@@ -34,13 +42,6 @@ export default function CreateWalletNamePage() {
                     className="w-full text-center text-white text-[16px] font-medium placeholder:text-white/60 bg-transparent outline-none"
                 />
             </div>
-
-            {/* Botão fixado a 104px do final */}
-            <PrimaryBottomButton
-                label="Continuar"
-                onClick={handleContinue}
-                disabled={walletName.trim() === ""}
-            />
         </MobileLayout>
     );
 }

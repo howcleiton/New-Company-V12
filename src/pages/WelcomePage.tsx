@@ -11,9 +11,24 @@ export default function WelcomePage() {
     const [accepted, setAccepted] = useState(false);
 
     return (
-        <MobileLayout>
-            {/* Conteúdo com rolagem, incluindo os botões */}
-            <div className="flex flex-col items-center justify-start w-full px-6 pt-[140px] pb-[165px]">
+        <MobileLayout
+            footer={
+                <div className="w-full flex flex-col gap-[13px] items-center">
+                    <PrimaryBottomButton
+                        label="Começar"
+                        onClick={() => navigate("/create-option")}
+                        disabled={!accepted}
+                    />
+                    <SecondaryBottomButton
+                        label="Importar Carteira Existente"
+                        onClick={() => navigate("/import-wallet")}
+                        disabled={!accepted}
+                    />
+                </div>
+            }
+            bottomButtonsCount={2}
+        >
+            <div className="flex flex-col items-center justify-start w-full px-6 pt-[140px]">
                 {/* Animação */}
                 <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
@@ -46,20 +61,6 @@ export default function WelcomePage() {
                         termos de serviço
                     </button>
                 </label>
-
-                {/* Botões — agora fazem parte do scroll também */}
-                <div className="mt-[104px] w-full flex flex-col gap-[13px] items-center">
-                    <PrimaryBottomButton
-                        label="Começar"
-                        onClick={() => navigate("/create-option")}
-                        disabled={!accepted}
-                    />
-                    <SecondaryBottomButton
-                        label="Importar Carteira Existente"
-                        onClick={() => navigate("/import-wallet")}
-                        disabled={!accepted}
-                    />
-                </div>
             </div>
         </MobileLayout>
     );

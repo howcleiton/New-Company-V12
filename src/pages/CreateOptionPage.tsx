@@ -15,7 +15,21 @@ export default function CreateOptionSelect() {
     const navigate = useNavigate();
 
     return (
-        <MobileLayout>
+        <MobileLayout
+            footer={
+                <>
+                    <PrimaryBottomButton
+                        label="Continuar com Email"
+                        onClick={() => navigate("/create-email")}
+                    />
+                    <SecondaryBottomButton
+                        label="Crie uma carteira"
+                        onClick={() => navigate("/create-wallet")}
+                    />
+                </>
+            }
+            bottomButtonsCount={2}
+        >
             <div className="relative w-full h-[852px] px-6">
                 {/* Botão de voltar */}
                 <button
@@ -56,17 +70,6 @@ export default function CreateOptionSelect() {
                         </p>
                     </div>
                 </div>
-
-                {/* Botões fixos na parte inferior */}
-                <PrimaryBottomButton
-                    label="Continuar com Email"
-                    onClick={() => navigate("/create-email")}
-                />
-
-                <SecondaryBottomButton
-                    label="Crie uma carteira"
-                    onClick={() => navigate("/create-wallet")}
-                />
             </div>
         </MobileLayout>
     );

@@ -17,7 +17,18 @@ export default function CreatePinPage() {
     };
 
     return (
-        <MobileLayout>
+        <MobileLayout
+            footer={
+                <PrimaryBottomButton
+                    label="Continuar"
+                    onClick={() => {
+                        setPinGlobal(pin);
+                        navigate("/confirm-pin");
+                    }}
+                    disabled={pin.length < 4}
+                />
+            }
+        >
             <div className="relative w-full h-[852px] px-6 text-white">
                 {/* Botão de voltar */}
                 <button
@@ -62,16 +73,6 @@ export default function CreatePinPage() {
                         className="absolute inset-0 opacity-0 w-full h-full"
                     />
                 </div>
-
-                {/* Botão Continuar */}
-                <PrimaryBottomButton
-                    label="Continuar"
-                    onClick={() => {
-                        setPinGlobal(pin);
-                        navigate("/confirm-pin");
-                    }}
-                    disabled={pin.length < 4}
-                />
             </div>
         </MobileLayout>
     );

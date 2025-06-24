@@ -29,8 +29,15 @@ export default function CreateWalletPage() {
     };
 
     return (
-        <MobileLayout>
-            <div className="flex flex-col h-full w-full font-inter px-6 pt-[68px] pb-[165px] relative">
+        <MobileLayout
+            footer={
+                <PrimaryBottomButton
+                    label="Frase salva"
+                    onClick={() => navigate("/wallet")}
+                />
+            }
+        >
+            <div className="flex flex-col h-full w-full font-inter px-6 pt-[68px] relative">
                 {/* Botão de voltar */}
                 <button
                     className="absolute top-[68px] left-[16px]"
@@ -103,12 +110,6 @@ export default function CreateWalletPage() {
                     )}
                     {copied ? "Seed copiada!" : "Copiar para área de transferência"}
                 </div>
-
-                {/* Botão "Frase salva" fixo */}
-                <PrimaryBottomButton
-                    label="Frase salva"
-                    onClick={() => navigate("/wallet")}
-                />
             </div>
         </MobileLayout>
     );
