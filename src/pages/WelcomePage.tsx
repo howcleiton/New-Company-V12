@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/welcome-page.json';
 import MobileLayout from '../components/layout/MobileLayout';
-import { SPACING } from '@/constants/layout';
 import PrimaryBottomButton from '@/components/ui/PrimaryBottomButton';
 import SecondaryBottomButton from '@/components/ui/SecondaryBottomButton';
 
