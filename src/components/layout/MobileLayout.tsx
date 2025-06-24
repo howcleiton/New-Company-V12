@@ -32,9 +32,9 @@ const MobileLayout = ({ children, bottomButtonsCount = 1, footer }: MobileLayout
                     className="flex-1 overflow-y-auto"
                     style={{
                         paddingTop: '140px', // padding superior do Figma
-                        paddingBottom: `calc(${bottomPadding}px + var(--safe-bottom))`,
-                        paddingLeft: 'var(--safe-left)',
-                        paddingRight: 'var(--safe-right)',
+                        paddingBottom: `${bottomPadding}px`,
+                        paddingLeft: '0px',
+                        paddingRight: '0px',
                     }}
                 >
                     {children}
@@ -44,7 +44,7 @@ const MobileLayout = ({ children, bottomButtonsCount = 1, footer }: MobileLayout
                     <footer
                         className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] px-4 z-50"
                         style={{
-                            paddingBottom: 'calc(24px + var(--safe-bottom))',
+                            paddingBottom: '24px',
                             background: 'rgba(24,24,27,0.95)',
                         }}
                     >
