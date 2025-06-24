@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/welcome-page.json';
 import MobileLayout from '../components/layout/MobileLayout';
-import { SPACING } from '@/constants/layout';
 import PrimaryBottomButton from '@/components/ui/PrimaryBottomButton';
 import SecondaryBottomButton from '@/components/ui/SecondaryBottomButton';
 
@@ -13,36 +12,23 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            {/* Container principal com altura e posicionamento fixos */}
-            <div
-                className="relative w-full h-[852px] px-6"
-                style={{ paddingTop: SPACING.animationTop }}
-            >
+            <div className="flex flex-col items-center justify-start w-full px-6 pt-[140px] pb-[220px]">
                 {/* Animação */}
                 <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
                 {/* Título */}
-                <h1
-                    className="text-[30px] font-bold text-[#D47EAE] text-center"
-                    style={{ marginTop: SPACING.animationToTitle }}
-                >
+                <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
                     Bem-vindo à How
                 </h1>
 
                 {/* Subtítulo */}
-                <p
-                    className="text-[18px] font-medium text-white text-center leading-[24px]"
-                    style={{ marginTop: SPACING.titleToSubtitle }}
-                >
+                <p className="text-[18px] font-medium text-white text-center leading-[24px] mt-[8px]">
                     Sua carteira de criptomoedas segura<br />
                     e fácil de usar
                 </p>
 
                 {/* Checkbox */}
-                <label
-                    className="flex items-center text-white text-[16px] font-medium"
-                    style={{ marginTop: 82 }}
-                >
+                <label className="flex items-center text-white text-[16px] font-medium mt-[82px]">
                     <input
                         type="checkbox"
                         className="mr-2 w-4 h-4 accent-[#D47EAE]"
@@ -57,20 +43,19 @@ export default function WelcomePage() {
                         termos de serviço
                     </button>
                 </label>
-
-                {/* Botões fixos na parte inferior */}
-                <PrimaryBottomButton
-                    label="Começar"
-                    onClick={() => navigate("/create-option")}
-                    disabled={!accepted}
-                />
-
-                <SecondaryBottomButton
-                    label="Importar Carteira Existente"
-                    onClick={() => navigate("/import-wallet")}
-                    disabled={!accepted}
-                />
             </div>
+
+            {/* Botões fixos na parte inferior com espaçamentos corretos */}
+            <PrimaryBottomButton
+                label="Começar"
+                onClick={() => navigate("/create-option")}
+                disabled={!accepted}
+            />
+            <SecondaryBottomButton
+                label="Importar Carteira Existente"
+                onClick={() => navigate("/import-wallet")}
+                disabled={!accepted}
+            />
         </MobileLayout>
     );
 }
