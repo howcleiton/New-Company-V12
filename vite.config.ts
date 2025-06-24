@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
-import path from 'path'; // 👈 necessário para configurar o alias "@"
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -33,7 +33,18 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src') // 👈 agora o @ funciona corretamente!
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
+  build: {
+    assetsDir: 'assets',
+    manifest: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`
+      }
     }
   }
 });

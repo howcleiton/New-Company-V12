@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import animationData from '../assets/lottie/welcome-page.json';
 import MobileLayout from '../components/layout/MobileLayout';
+import { SPACING } from '@/constants/layout';
 import PrimaryBottomButton from '@/components/ui/PrimaryBottomButton';
 import SecondaryBottomButton from '@/components/ui/SecondaryBottomButton';
 
@@ -12,12 +13,15 @@ export default function WelcomePage() {
 
     return (
         <MobileLayout>
-            <div className="flex flex-col items-center justify-start w-full px-6 pt-[140px] pb-[220px]">
+            {/* Conteúdo com rolagem, incluindo os botões */}
+            <div className="flex flex-col items-center justify-start w-full px-6 pt-[140px] pb-[165px]">
                 {/* Animação */}
                 <Lottie animationData={animationData} className="w-[250px] h-[250px]" />
 
                 {/* Título */}
-                <h1 className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]">
+                <h1
+                    className="text-[30px] font-bold text-[#D47EAE] text-center mt-[32px]"
+                >
                     Bem-vindo à How
                 </h1>
 
@@ -43,19 +47,21 @@ export default function WelcomePage() {
                         termos de serviço
                     </button>
                 </label>
-            </div>
 
-            {/* Botões fixos na parte inferior com espaçamentos corretos */}
-            <PrimaryBottomButton
-                label="Começar"
-                onClick={() => navigate("/create-option")}
-                disabled={!accepted}
-            />
-            <SecondaryBottomButton
-                label="Importar Carteira Existente"
-                onClick={() => navigate("/import-wallet")}
-                disabled={!accepted}
-            />
+                {/* Botões — agora fazem parte do scroll também */}
+                <div className="mt-[104px] w-full flex flex-col gap-[13px] items-center">
+                    <PrimaryBottomButton
+                        label="Começar"
+                        onClick={() => navigate("/create-option")}
+                        disabled={!accepted}
+                    />
+                    <SecondaryBottomButton
+                        label="Importar Carteira Existente"
+                        onClick={() => navigate("/import-wallet")}
+                        disabled={!accepted}
+                    />
+                </div>
+            </div>
         </MobileLayout>
     );
 }
